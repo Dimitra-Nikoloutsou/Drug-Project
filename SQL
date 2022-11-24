@@ -173,6 +173,19 @@ count(*) as number_of_cases
 from drug
 group by sex, drug;
 
+--Drug and age relationship
+SELECT
+case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end as age_groups,
+drug,
+count(*) as number_of_cases
+from drug
+where bp='HIGH'
+group by drug, case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end
+ORDER by age_groups
 
 
 
