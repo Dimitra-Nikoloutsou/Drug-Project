@@ -1,0 +1,100 @@
+SELECT *
+FROM drug;
+
+--Exploring the data
+SELECT count(*)
+from drug;
+
+select distinct(sex)
+from drug;
+
+select distinct(bp)
+from drug;
+
+select distinct(cholesterol)
+from drug;
+
+select distinct(drug)
+from drug;
+
+--Check for duplicates
+with RowNumCTE as (
+  Select *, ROW_NUMBER() OVER (PARTITION BY age, sex, bp, cholesterol, na_to_k, drug ORDER BY age, sex, bp, cholesterol, na_to_k, drug) row_num
+From drug
+)
+
+Select *
+From RowNumCTE
+Where row_num > 1;
+
+--Change sex to male and female
+Select sex
+, CASE When sex = 'F' THEN 'Female'
+	   When sex = 'M' THEN 'Male'
+	   ELSE sex
+	   END
+From drug;
+
+UPDATE drug
+set sex=CASE When sex = 'F' THEN 'Female'
+	   When sex = 'M' THEN 'Male'
+	   ELSE sex
+	   END
+From drug;
+
+--Change Drug name
+Select drug
+, CASE When drug = 'drugA' THEN 'A'
+	   When drug = 'drugB' THEN 'B'
+       When drug = 'drugC' THEN 'C'
+       When drug = 'drugX' THEN 'X'
+       When drug = 'DrugY' THEN 'Y'
+	   ELSE drug
+	   END
+From drug;
+
+UPDATE drug
+set drug=CASE When drug = 'drugA' THEN 'A'
+	   When drug = 'drugB' THEN 'B'
+       When drug = 'drugC' THEN 'C'
+       When drug = 'drugX' THEN 'X'
+       When drug = 'DrugY' THEN 'Y'
+	   ELSE drug
+	   END
+From drug;
+
+--Age exploration
+SELECT DISTINCT age
+from drug;
+
+--DATA MINING--
+
+select *
+from drug;
+
+--Number of patients per gender
+SELECT sex,
+count(*)
+from drug
+group by sex;
+
+--Blood Pressure levels
+SELECT
+count(case when bp='LOW' then 1 end) as low_bp,
+count(case when bp='NORMAL' then 1 end) as normal_bp,
+count(case when bp='HIGH' then 1 end) as high_bp
+from drug;
+
+--Age groups
+SELECT
+case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end as age_groups,
+sex,
+count(*) as number_of_patients
+from drug
+group by sex, case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end
+order by age_groups
+
