@@ -135,6 +135,43 @@ when age BETWEEN 35 and 54 then '35-54'
 else '55-74' end
 ;
 
+--Relationship between Blood Pressure and Sodium to potassium Ration in Blood
+SELECT
+bp,
+round((avg(na_to_k)),2) as avg_na
+from drug
+group by bp;
+
+--Level cholesterol by age group and sex
+SELECT
+case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end as age_groups,
+sex,
+count(case when cholesterol='NORMAL' then 1 end) as normal_ch,
+count(case when cholesterol='HIGH' then 1 end) as high_ch
+from drug
+group by sex, case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end
+;
+
+--Drugs given
+select 
+bp,
+cholesterol,
+drug,
+count(*) as number_of_cases
+from drug
+group by bp, drug, cholesterol
+order by bp, drug;
+
+SELECT
+sex,
+drug,
+count(*) as number_of_cases
+from drug
+group by sex, drug;
 
 
 
