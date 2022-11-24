@@ -67,7 +67,7 @@ From drug;
 SELECT DISTINCT age
 from drug;
 
---DATA MINING--
+--DATA MINING
 
 select *
 from drug;
@@ -91,10 +91,51 @@ case when age BETWEEN 15 and 34 then '15-34'
 when age BETWEEN 35 and 54 then '35-54'
 else '55-74' end as age_groups,
 sex,
-count(*) as number_of_patients
+count(*) as number_of_patients,
+round((count(*)/200.0*100.0),2) as percentage_of_patients
 from drug
 group by sex, case when age BETWEEN 15 and 34 then '15-34'
 when age BETWEEN 35 and 54 then '35-54'
 else '55-74' end
-order by age_groups
+order by age_groups;
+
+--Level pressure by age group and sex
+SELECT
+case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end as age_groups,
+sex,
+count(case when bp='LOW' then 1 end) as low_bp,
+count(case when bp='NORMAL' then 1 end) as normal_bp,
+count(case when bp='HIGH' then 1 end) as high_bp
+from drug
+group by sex, case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end
+;
+
+--Relationship between Blood Pressure and Sodium to potassium Ration in Blood
+SELECT
+bp,
+round((avg(na_to_k)),2) as avg_na
+from drug
+group by bp;
+
+--Level cholesterol by age group and sex
+SELECT
+case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end as age_groups,
+sex,
+count(case when cholesterol='NORMAL' then 1 end) as normal_ch,
+count(case when cholesterol='HIGH' then 1 end) as high_ch
+from drug
+group by sex, case when age BETWEEN 15 and 34 then '15-34'
+when age BETWEEN 35 and 54 then '35-54'
+else '55-74' end
+;
+
+
+
+
 
