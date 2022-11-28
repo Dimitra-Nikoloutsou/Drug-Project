@@ -19,3 +19,34 @@ This project was taken from <a href="https://www.kaggle.com/datasets/prathamtrip
 
 
 <h1> INSIGHTS </h1>
+
+There are 200 records of patients. 52% of them are men and 48% are women. The patients are 15 to 74 years old.
+
+We are going to make three age groups so to have a clear picture of the analysis. 
+Group A= 15-34, Group B=35-54 and Group C=55-74.
+
+People with high blood pressure take drug A, B and Y with Y to be the most common drug.
+
+People with low blood pressure take drug Y, C and X with Y to be the most common drug.
+
+People with normal blood pressure take drug Y and X with X to be the most common drug.
+
+Drug A is given only to age groups 15-34 and 35-54 to patients with high bp.
+
+Drug B is given only to age groups 35-54 and mainly to 55-74 to patients with high bp.
+
+Drug C is given to all age groups to patients with low bp.
+
+Drug X is given to all age groups to patients with normal and low bp.
+
+Drug Y is the most common for all age groups and for all bp cases. A percentage of 41.76% that took drug Y was patients with high bp, follows 32.97% of low bp and then a 25.27% with normal pressure.
+
+It looks like Y drug works like a pressure regulator as it is given in all cases.
+
+High Sodium to potassium Ration in Blood can cause high or low bp. Patients with normal bp tend to have lower Na to K.
+
+
+
+
+
+
