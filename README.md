@@ -2,7 +2,7 @@
 
 <h2>About Data</h2>
 
-This project was taken from <a href="https://www.kaggle.com/datasets/prathamtripathi/drug-classification">Kaggle</a>  under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">licence</a>
+This project was taken from <a href="https://www.kaggle.com/datasets/prathamtripathi/drug-classification">Kaggle</a>  under the <a href="https://creativecommons.org/publicdomain/zero/1.0/">licence</a> for SQL and Tableau practice purposes.
 
 <h2>Business Task</h2>
 
@@ -14,7 +14,24 @@ This project was taken from <a href="https://www.kaggle.com/datasets/prathamtrip
 <p>Cholesterol and age relationship </p>
 <p>Cholesterol and gender relationship</p>
 
-<h2>Visualisation</h2>
+<h3>1.Ask</h3>
+First step is to identify the business task. The task is to discover trends and relationships between drugs and patient's condition.
+
+<h3>2.Prepare</h3>
+
+The file is in .csv format. I downloaded from Kaggle and imported into MS SQL Server. 
+
+<h3>3.Process</h3>
+
+I checked for nulls and duplicates. I changed sex field from F and M to female and male. I also changed the name of the drug so the exploration to be easier.
+
+<h3>4.Analyse</h3>
+
+View <a href="https://github.com/Dimitra-Nikoloutsou/Drug-Project/blob/main/SQL">SQL File</a>
+
+I exported it in .csv file and imported it in Tableau desktop Public.
+
+<h3>5.Share</h3>
 
 <a href="https://public.tableau.com/app/profile/dimitra.nikoloutsou/viz/drug_project/Dashboard1">Tableau link</a> (Interactive Dashboard)
 
