@@ -35,7 +35,7 @@ I exported it in .csv file and imported it in Tableau desktop Public.
 
 <a href="https://public.tableau.com/app/profile/dimitra.nikoloutsou/viz/drug_project/Dashboard1">Tableau link</a> (Interactive Dashboard)
 
-![Dashboard 1](https://user-images.githubusercontent.com/114480002/204472803-bb239ce9-2c07-47d2-b804-d199ea6bdfd8.png)
+![Dashboard 2](https://user-images.githubusercontent.com/114480002/204514379-c84b3b68-b41b-46da-9287-a26793d785d3.png)
 
 <h1> INSIGHTS </h1>
 
